@@ -47,3 +47,58 @@ body {
   background: var(--bg);
   color: var(--ink);
 }
+
+/* ------------------------------------------------------------------ */
+/* Prototype de présentation (/ et /demo) : thème clair fixe.          */
+/* encre = structure, tampon = action et « couvert », surligneur =     */
+/* preuves uniquement, brique = risque.                                */
+/* ------------------------------------------------------------------ */
+@theme inline {
+  --color-encre: #17233f;
+  --color-encre-2: #24345a;
+  --color-papier: #f2f4f1;
+  --color-filet: #d8ddd6;
+  --color-gris: #5a6472;
+  --color-tampon: #2e7a57;
+  --color-tampon-2: #23613f;
+  --color-surligneur: #f3d64e;
+  --color-brique: #b5432f;
+  --font-display: var(--font-bricolage);
+  --font-ui: var(--font-plex);
+}
+
+.proto {
+  color-scheme: light;
+  background: var(--color-papier);
+  color: var(--color-encre);
+  font-family: var(--font-plex), system-ui, sans-serif;
+  font-variant-numeric: tabular-nums;
+}
+.proto :focus-visible {
+  outline: 2px solid var(--color-tampon);
+  outline-offset: 2px;
+}
+
+/* Marque de preuve : un trait de surligneur derrière le texte. */
+.preuve {
+  background: linear-gradient(transparent 18%, var(--color-surligneur) 18%, var(--color-surligneur) 88%, transparent 88%);
+  padding: 0 0.3em;
+  border-radius: 2px;
+  box-decoration-break: clone;
+}
+
+/* Seule animation non déclenchée : les preuves se surlignent à l'arrivée sur l'accueil. */
+@keyframes surligne {
+  from { background-size: 0% 100%; }
+  to { background-size: 100% 100%; }
+}
+.preuve-anim {
+  background-image: linear-gradient(transparent 18%, var(--color-surligneur) 18%, var(--color-surligneur) 88%, transparent 88%);
+  background-repeat: no-repeat;
+  background-size: 0% 100%;
+  animation: surligne 0.5s ease-out forwards;
+  padding: 0 0.3em;
+}
+@media (prefers-reduced-motion: reduce) {
+  .preuve-anim { animation: none; background-size: 100% 100%; }
+}
