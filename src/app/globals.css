@@ -1,0 +1,49 @@
+@import "tailwindcss";
+
+/* Jetons de couleur : contraste AA visé (exigence RGAA). */
+:root {
+  --bg: #f6f5f1;
+  --surface: #ffffff;
+  --ink: #1c1f24;
+  --muted: #5b616b;
+  --line: #d9d6cd;
+  --accent: #1f5f4a;
+  --accent-strong: #154535;
+  --on-accent: #ffffff;
+  --danger: #a12828;
+  --success: #1f6b3a;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #14161a;
+    --surface: #1d2025;
+    --ink: #eceae4;
+    --muted: #a3a8b0;
+    --line: #353a42;
+    --accent: #4fae8b;
+    --accent-strong: #6cc6a3;
+    --on-accent: #0b1f17;
+    --danger: #f08a8a;
+    --success: #7fd19b;
+  }
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-accent: var(--accent);
+  --color-accent-strong: var(--accent-strong);
+  --color-on-accent: var(--on-accent);
+  --color-danger: var(--danger);
+  --color-success: var(--success);
+  --font-sans: var(--font-sans-family);
+}
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+}

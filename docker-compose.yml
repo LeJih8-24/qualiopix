@@ -1,0 +1,21 @@
+# Base de données locale de développement et de test.
+# Port 5433 pour ne pas entrer en conflit avec un Postgres déjà installé.
+services:
+  db:
+    image: postgres:17-alpine
+    environment:
+      POSTGRES_USER: qualiopix
+      POSTGRES_PASSWORD: qualiopix
+      POSTGRES_DB: qualiopix
+    ports:
+      - "5433:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./docker/initdb:/docker-entrypoint-initdb.d:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U qualiopix"]
+      interval: 2s
+      timeout: 3s
+      retries: 20
+volumes:
+  pgdata:
