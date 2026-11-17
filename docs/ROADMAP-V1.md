@@ -15,22 +15,23 @@ Légende : ✅ fait · 🟡 partiel · ⬜ à faire
 | ACC-02 | Profil de l'organisme | 🟡 | Envoi du logo (attend le stockage de fichiers) ; verrouillage du régime de TVA par exercice (RG-09, avec FAC-01) |
 | — | Cloisonnement RLS, journal des actions non modifiable | ✅ | — |
 
-## Jalon 1 – Briques transverses
+## Jalon 1 – Briques transverses ✅
 
-Tout le reste en dépend : sans elles, aucune preuve ne peut être produite.
+| ID | Fonctionnalité | État | Reste à faire |
+| --- | --- | --- | --- |
+| — | Documents figés (RG-02) | ✅ | Stockage objet UE en production (interface `FileStorage` prête, disque local en dev) |
+| — | Dates de preuve imposées par la base (RG-03) | ✅ | — |
+| — | Liens sécurisés | ✅ | Révocation depuis l'interface |
+| — | Signature électronique simple (eIDAS) | ✅ | Signature du formateur ; signature par plusieurs personnes d'un même document (convention) |
+| QUA-01 | Référentiel paramétrable | 🟡 | Intitulés des 33 indicateurs à vérifier contre le guide de lecture du décret 2026-728 ; statut de l'indicateur 33 (point ouvert) |
+| QUA-02 | Classement des preuves | ✅ | Chaque nouveau module doit appeler `recordEvidence()` |
+| NOT-01 | Centre de notifications | 🟡 | Envoi par e-mail des notifications et réglages |
+| NOT-02 | Modèles d'e-mails | ✅ | Ajouter les modèles de chaque module (convocation, rappels…) |
+| ACC-07 | Documents de l'organisme | 🟡 | Textes à faire relire par un juriste |
+| ACC-08 | Référents | ✅ | — |
+| VEI-01 | Annuaire handicap | ✅ | Liens à revérifier périodiquement |
 
-| ID | Fonctionnalité | Notes |
-| --- | --- | --- |
-| — | Documents figés (RG-02, RG-03) | Génération PDF, empreinte SHA-256, horodatage, versionnement ; stockage objet UE |
-| — | Liens sécurisés (stagiaire, client, donneur d'ordre) | Jeton à durée limitée, sans compte |
-| — | Signature électronique simple (eIDAS) | Dossier de preuve : identité, horodatage, IP, empreinte |
-| QUA-01 | Référentiel paramétrable | 33 indicateurs en données, applicabilité selon le profil |
-| QUA-02 | Classement des preuves | Table `evidence` → indicateurs ; chaque événement daté crée sa preuve |
-| NOT-01 | Centre de notifications | |
-| NOT-02 | Modèles d'e-mails | Couche d'adaptation e-mail (Brevo) |
-| ACC-07 | Documents de l'organisme | Règlement intérieur, livret d'accueil, CGV, politique violences |
-| ACC-08 | Référents | Prépare RG-13 |
-| VEI-01 | Annuaire handicap | Données statiques |
+Intégrations : e-mail Brevo prêt (activé si `BREVO_API_KEY` est renseigné, sinon envoi simulé dans le journal du serveur).
 
 ## Jalon 2 – Catalogue et conception
 

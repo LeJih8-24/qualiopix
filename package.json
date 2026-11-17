@@ -17,6 +17,7 @@
   },
   "dependencies": {
     "@node-rs/argon2": "^2.2.2",
+    "@react-pdf/renderer": "^4.9.0",
     "drizzle-orm": "^0.45.4",
     "next": "15.5.29",
     "postgres": "^4.1.1",

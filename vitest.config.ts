@@ -4,6 +4,8 @@ import { defineConfig } from "vitest/config";
 const r = (p: string) => fileURLToPath(new URL(p, import.meta.url));
 
 export default defineConfig({
+  // tsconfig garde « jsx: preserve » pour Next.js ; Vitest doit transformer le JSX lui-même.
+  oxc: { jsx: { runtime: "automatic" } },
   resolve: {
     alias: {
       "@": r("./src"),

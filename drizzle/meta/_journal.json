@@ -15,6 +15,20 @@
       "when": 1794951807605,
       "tag": "0001_rls_and_audit",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1794954303514,
+      "tag": "0002_foundations",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1794954303877,
+      "tag": "0003_foundations_rules",
+      "breakpoints": true
     }
   ]
 }
